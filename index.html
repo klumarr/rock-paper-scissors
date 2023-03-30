@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+<script>
+    console.log("Hello World")
+
+    /*
+
+    Generate a random choice for the computer
+    User picks their choice
+    Check if choices are the same
+        IF choices are the same, prompt computer and user to pick again
+        ELSE IF choices are different THEN 
+            Compare choices for the winner of the round
+    Determine winner of the round
+    Award the winner point
+    Display the current score
+    Run the game again
+    Play 5 rounds of the game
+    Once 5 rounds have been played determine the winner of the game
+    
+    
+    Create variables to track scores
+    Define a function to generate the computer's choice
+    Generate a random number betweeen 0 and 2
+    Assign rock, paper or scissors based on the random number
+    Define a function to play a round of the game
+    Convert both selections to lowercase for case-insensitive comparison
+    Check if the player and computer chose the same option
+    Check for player wins
+    Check for computer wins
+    Define a function to play the game
+    Play 5 rounds of the game
+    Ask the player for their choice
+    Generate the computer's choice
+    Play a round of the game with the player's and computer's choice
+    Display the current score
+    Determine the winner of the game
+    Call the game function to start the game
+
+    */
+
+let playerScore = 0;
+let computerScore = 0;
+
+function getComputerChoice() {
+    const randomNumber = Math.floor(Math.random() * 3);
+    if (randomNumber === 0) {
+        return 'rock';
+    } else if (randomNumber === 1) {
+        return 'paper';
+    } else {
+        return 'scissors';
+    }
+}
+
+/* console.log(getComputerChoice()); */
+
+function playRound(playerSelection, computerSelection) {
+
+  const playerChoice = playerSelection.toLowerCase();
+  const computerChoice = computerSelection.toLowerCase();
+  
+  if (playerChoice === computerChoice) {
+    console.log("It's a draw!");
+    return;
+  }
+  
+  if (
+    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'paper' && computerChoice === 'rock') ||
+    (playerChoice === 'scissors' && computerChoice === 'paper')
+  ) {
+    console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+    playerScore++;
+    return;
+  }
+  if (
+    (computerChoice === 'rock' && playerChoice === 'scissors') ||
+    (computerChoice === 'paper' && playerChoice === 'rock') ||
+    (computerChoice === 'scissors' && playerChoice === 'paper')
+  ) {
+    console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
+    computerScore++;
+    return;
+  }
+}
+
+
+
+</script>
+    
+</body>
+</html>
